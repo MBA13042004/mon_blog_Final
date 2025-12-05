@@ -10,6 +10,7 @@ function articleDetail() {
     if (!isset($_GET['id'])) {
         throw new Exception("ID article manquant");
     }
+    
 
     $id = intval($_GET['id']);
 
