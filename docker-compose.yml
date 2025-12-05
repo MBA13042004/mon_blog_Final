@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: blog_web
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: mon_blog
+      DB_USER: root
+      DB_PASS: example
+    networks:
+      - blognet
+
+  db:
+    # le fichier exporté de phpmyadmin est MariaDB
+    image: mariadb:10.4
+    container_name: blog_db
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mon_blog
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql/mon_blog.sql:/docker-entrypoint-initdb.d/mon_blog.sql
+    networks:
+      - blognet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: blog_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: example
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - blognet
+
+networks:
+  blognet:
+
+volumes:
+  db_data:
