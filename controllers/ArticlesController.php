@@ -20,5 +20,5 @@ function articleDetail() {
         throw new Exception("Article introuvable");
     }
 
-    require "views/vueArticleDetail.php";
+    require "views/vuearticleDetail.php";
 }
