@@ -26,7 +26,7 @@ ob_start();
         </p>
 
         <div class="blog-card-footer">
-            <a href="/index.php?action=articleDetail&id=<?= $a["id"] ?>" class="blog-btn">
+            <a href="index.php?action=articleDetail&id=<?= $a["id"] ?>" class="blog-btn">
                 Lire plus
             </a>
         </div>
