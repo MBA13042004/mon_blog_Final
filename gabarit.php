@@ -27,7 +27,7 @@
               <span class="symbol">
                <img src="images/logo2.jpg" alt="Logo" class="Img">
               </span>
-              <span class="title">Mon Blog</span>
+              <span class="title">Mon Final Blog </span>
             </a>
 
 
